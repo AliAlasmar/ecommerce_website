@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.dashboard.login');
 });
+
+Route::group(['prefix'=>'admin', 'middleware'=>'guest:admin'],function(){
+       Route::get()
+});
+
