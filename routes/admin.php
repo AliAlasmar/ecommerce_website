@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-
+use  App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.dashboard.home');
 });
-
-Route::group([ 'middleware'=>'guest:admin'],function(){
-      Route::get('login','LoginController@login');
-});
+Route::get('login','LoginController@login');
+//Route::group([ 'middleware'=>'guest:admin'],function(){
+//
+//  //  Route::post('login','LoginController@check_login')->name('admin.login');
+//});
 

@@ -64,7 +64,7 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-body">
-                                    <form class="form-horizontal" action="index.html" novalidate>
+                                    <form class="form-horizontal" action="{{route('admin.login')}}" method="post" novalidate>
                                         <fieldset class="form-group position-relative has-icon-left">
                                             <input type="text" class="form-control input-lg" id="user-name" placeholder="Your Username" tabindex="1" required data-validation-required-message= "Please enter your username.">
                                             <div class="form-control-position">
