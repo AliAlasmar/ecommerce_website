@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.dashboard.login');
+    return view('admin.dashboard.home');
 });
 
-Route::group(['prefix'=>'admin', 'middleware'=>'guest:admin'],function(){
-       Route::get()
+Route::group([ 'middleware'=>'guest:admin'],function(){
+      Route::get('login','LoginController@login');
 });
 
