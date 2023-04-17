@@ -64,16 +64,18 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-body">
-                                    <form class="form-horizontal" action="{{route('admin.login')}}" method="post" novalidate>
+                                 @include('../admin/dashboard/includes/alert/error')
+                                    <form class="form-horizontal" action="{{route('admin.login')}}" method="post" >
+                                        @csrf
                                         <fieldset class="form-group position-relative has-icon-left">
-                                            <input type="text" class="form-control input-lg" id="user-name" placeholder="Your Username" tabindex="1" required data-validation-required-message= "Please enter your username.">
+                                            <input type="email" name="email" class="form-control input-lg" id="user-name" placeholder="Your Username" tabindex="1" required data-validation-required-message= "Please enter your email.">
                                             <div class="form-control-position">
                                                 <i class="ft-user"></i>
                                             </div>
                                             <div class="help-block font-small-3"></div>
                                         </fieldset>
                                         <fieldset class="form-group position-relative has-icon-left">
-                                            <input type="password" class="form-control input-lg" id="password" placeholder="Enter Password" tabindex="2" required data-validation-required-message= "Please enter valid passwords.">
+                                            <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Enter Password" tabindex="2" required data-validation-required-message= "Please enter valid passwords.">
                                             <div class="form-control-position">
                                                 <i class="la la-key"></i>
                                             </div>
@@ -88,14 +90,14 @@
                                             </div>
                                             <div class="col-md-6 col-12 text-center text-md-right"><a href="recover-password.html" class="card-link">Forgot Password?</a></div>
                                         </div>
-                                        <button type="submit" class="btn btn-danger btn-block btn-lg"><i class="ft-unlock"></i> Login</button>
+                                        <button type="submit" class="btn btn-info btn-block btn-lg"><i class="ft-unlock"></i> Login</button>
                                     </form>
                                 </div>
                             </div>
-                            <div class="card-footer border-0">
-                                <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1"><span>New to Modern ?</span></p>
-                                <a href="register-advanced.html" class="btn btn-info btn-block btn-lg mt-3"><i class="ft-user"></i> Register</a>
-                            </div>
+{{--                            <div class="card-footer border-0">--}}
+{{--                                <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1"><span>New to Modern ?</span></p>--}}
+{{--                                <a href="register-advanced.html" class="btn btn-info btn-block btn-lg mt-3"><i class="ft-user"></i> Register</a>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>
