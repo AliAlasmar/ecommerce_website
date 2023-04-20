@@ -34,4 +34,21 @@ class LanguagesController extends Controller
             $lang->save();
             return redirect()->route('admin.languages')->with(['success'=>'تمت الاضافة ينجاح']);
         }
+
+        public function edit($id){
+          $language = Language::where('id',$id)->first();
+          return view('admin.languages.edit' ,compact('language'));
+        }
+
+        public function update(Request $request ,$id){
+            $active = $request->status == 'on' ? 1 : 0;
+        $lang = Language::find($id);
+        $lang->update([
+            'name'=>$request->name,
+            'abbr'=>$request->abbr,
+            'direction'=>$request->academy_id,
+            'active'=>$active,
+        ]);
+        return redirect('/admin/languages')->with(['success'=>'تم التهديل بنجاح']);
+        }
 }

@@ -5,7 +5,7 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title"> الماركات التجارية </h3>
+                    <h3 class="content-header-title">  الاقسام </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
@@ -25,7 +25,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">جميع الماركات التجارية </h4>
+                                    <h4 class="card-title">جميع الاقسام الرئيسية </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -49,23 +49,23 @@
                                             <tr>
                                                 <th>الاسم</th>
                                                 <th>الاختصار</th>
-                                                <th>الاتجاه</th>
+                                                <th>الصورة</th>
                                                 <th>الحالة</th>
                                                 <th>الإجراءات</th>
                                             </tr>
 
                                             <tbody>
-                                            @isset($languages)
-                                            @foreach($languages as $lang)
+                                            @isset($mainCategories)
+                                            @foreach($mainCategories as $cat)
                                                     <tr>
-                                                        <td>{{$lang->name}}</td>
-                                                        <td>{{$lang->abbr}} </td>
-                                                        <td>{{$lang->direction}}</td>
-                                                        <td>{{$lang->active}}</td>
+                                                        <td>{{$cat->name}}</td>
+                                                        <td>{{$cat->translation_lang}} </td>
+                                                        <td><img width="50px" height="50px" src="{{asset('assets/images/maincategories/'.$cat->photo)}}"></td>
+                                                        <td>{{$cat->active}}</td>
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{url('/admin/languages/edit/'.$lang->id)}}"
+                                                                <a href="{{url('/admin/maincategories/edit/'.$cat->id)}}"
                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
                                                                 <a href=""
                                                                    class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>

@@ -79,8 +79,13 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
+    'supportedLocales' => [
+        'en' => ['name' => 'English', 'script' => 'Latn', 'native' => 'English'],
+        'ar' => ['name' => 'Arabic', 'script' => 'Arab', 'native' => 'العربية'],
+        'fr' => ['name' => 'French', 'script' => 'Latn', 'native' => 'français'],
+    ],
 
-    'locale' => 'en',
+    'locale' => 'ar',
 
     /*
     |--------------------------------------------------------------------------

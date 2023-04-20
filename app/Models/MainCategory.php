@@ -15,4 +15,9 @@ class MainCategory extends Model
     public function scopeActive($query){
         return $query->where('active',1);
     }
+
+    public function getActiveAttribute( $value)
+    {
+        return  $value === 1 ? 'مفعل' : "غير مفعل";
+    }
 }
