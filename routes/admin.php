@@ -39,6 +39,16 @@ Route::group(['middleware'=>'auth:admin'],function (){
     });
     ######### End maincategories ###############
 
+    ######### Bgain vendors ###############
+    Route::group(['prefix'=>'maincategories'],function (){
+        Route::get('/',[\App\Http\Controllers\Dashboard\MainCategoryController::class,'index'])->name('admin.maincategories');
+        Route::get('/create',[\App\Http\Controllers\Dashboard\MainCategoryController::class,'create'])->name('admin.maincategories.create');
+        Route::post('/store',[\App\Http\Controllers\Dashboard\MainCategoryController::class,'store'])->name('admin.maincategories.store');
+        Route::get('/edit/{id}',[\App\Http\Controllers\Dashboard\MainCategoryController::class,'edit'])->name('admin.maincategories.edit');
+        Route::post('/update/{id}',[\App\Http\Controllers\Dashboard\MainCategoryController::class,'update'])->name('admin.maincategories.update');
+
+    });
+    ######### End vendors ###############
 });
 
 

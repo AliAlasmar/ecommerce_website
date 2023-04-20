@@ -20,4 +20,12 @@ class MainCategory extends Model
     {
         return  $value === 1 ? 'مفعل' : "غير مفعل";
     }
+
+    public function categories (){
+        return $this->hasMany(self::class,'translation_of','id');
+    }
+
+    public function abbrs (){
+        return $this->hasOne('App\Models\Language','abbr','translation_lang');
+    }
 }

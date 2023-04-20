@@ -81,17 +81,21 @@ class MainCategoryController extends Controller
     public function edit($id)
     {
         //$language = Language::where('id', $id)->first();
-        $mainCategories = MainCategory::find($id);
+        $mainCategories = MainCategory::with(['categories','abbrs'])->where('id',$id)->first();
         //return $mainCategories;
         return view('admin.maincategories.edit', compact('mainCategories'));
     }
 
     public function update(Request $request, $id)
     {
-        return $request;
-        $imageName = time() . '.' . $request->photo->extension();
+        $maincategories = MainCategory::find($id);
+        $imageName = $maincategories->photo;
+        if($request->has('photo')){
+            $imageName = time() . '.' . $request->photo->extension();
 
-        $request->photo->move(public_path('assets/images/maincategories'), $imageName);
+            $request->photo->move(public_path('assets/images/maincategories'), $imageName);
+
+        }
 
         $active = $request->active == 'on' ? 1 : 0;
         $maincategories = MainCategory::find($id);
@@ -102,6 +106,6 @@ class MainCategoryController extends Controller
             'photo' => $imageName,
             'active' => $active,
         ]);
-        return redirect('/admin/maincategories')->with(['success' => 'تم التعديل بنجاح']);
+        return redirect()->back()->with(['success' => 'تم التعديل بنجاح']);
     }
 }
