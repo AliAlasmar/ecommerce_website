@@ -44,7 +44,53 @@
                         </g>
                     </svg>
                 </div>
+<?php
+                use GuzzleHttp\Client;
 
+                // Replace with your API key and phone number
+                $apiKey = 'ch1pjbml4cgc73cqlesg';
+                $phoneNumber = '963943592458';
+
+                // Replace with your message
+                $message = 'Hello, this is a test message from ali.';
+
+                // Set the URL for the API endpoint
+                $url = 'https://api.syriamtn.com.sy/sms/v1/messages';
+
+                // Create a new Guzzle HTTP client
+                $client = new Client();
+
+                // Create an array of data to send in the request
+                $data = [
+                    'to' => $phoneNumber,
+                    'message' => $message,
+                ];
+
+                // Set the headers and query parameters for the request
+                $headers = [
+                    'Authorization' => 'Bearer ' . $apiKey,
+                ];
+                $params = [
+                    'type' => 'text',
+                ];
+
+                // Send the request using Guzzle
+                $response = $client->post($url, [
+                    'headers' => $headers,
+                    'json' => $data,
+                    'query' => $params,
+                ]);
+
+                // Process the response
+                if ($response->getStatusCode() == 202) {
+                    // Success
+
+                    echo 'Message sent successfully.';
+                } else {
+                    // Error
+                    echo 'Error sending message.';
+                }
+                ?>
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="p-6">

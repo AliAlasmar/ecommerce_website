@@ -15,7 +15,7 @@ class MainCategoryController extends Controller
     {
 
 
-        $mainCategories = MainCategory::where('translation_lang', get_defualt_language())->paginate(10);
+        $mainCategories = MainCategory::where('translation_lang', get_defualt_language())->paginate(5);
         //return($mainCategories);
         return view('admin.maincategories.index', compact('mainCategories',));
 

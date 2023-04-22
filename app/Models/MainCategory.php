@@ -25,6 +25,10 @@ class MainCategory extends Model
         return $this->hasMany(self::class,'translation_of','id');
     }
 
+    public function vendors (){
+        return $this->hasMany('App\Models\Vendor','category_id','id');
+    }
+
     public function abbrs (){
         return $this->hasOne('App\Models\Language','abbr','translation_lang');
     }
